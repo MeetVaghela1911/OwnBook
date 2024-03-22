@@ -1,0 +1,70 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">OwnBook</string>
+    <string name="my_notes">My Notes</string>
+    <string name="client_id" tools:ignore="TypographyDashes">677196876673-68pfncjnbb0488vq5juvmhheurtalrsm.apps.googleusercontent.com</string>
+    <string name="search_notes">Search Notes</string>
+    <string name="note_title">Note Title</string>
+    <string name="note_subtitle">Note Subtitle</string>
+    <string name="type_note_here">Type Note Here....</string>
+    <string name="miscellaneous">Miscellaneous</string>
+    <string name="pick_color">Pick Color</string>
+    <string name="add_url">Add Url...</string>
+    <string name="add_image">Add Image...</string>
+    <string name="add_url_here">Add Url Here...</string>
+    <string name="cancal">Cancal</string>
+    <string name="add">Add</string>
+    <string name="enter_your_url">Enter your url</string>
+    <string name="delet">Delete</string>
+    <string name="delete_note">Delete Note</string>
+    <string name="are_you_sure_want_to_delete_note">Are you sure want to delete note ?</string>
+    <string name="own_book">Own Book</string>
+    <string name="listning">Listning....</string>
+    <string name="colours">Colours</string>
+    <string name="voice_typing">Voice Typing</string>
+    <string name="add_something">Add Something...</string>
+    <string name="make_copy">Make Copy</string>
+    <string name="share">Share</string>
+    <string name="add_checkbox_name">Add Checkbox Name...</string>
+    <string name="enter_tag_for_checkbox">Enter Tag For Checkbox...</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="archive">Archive</string>
+    <string name="search_archive_notes">Search Archive Notes...</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="pinned">Pinned</string>
+    <string name="others">Others</string>
+    <string name="create_note">Create Note</string>
+    <string name="no_notes_available">No notes Available</string>
+    <string name="login">Login</string>
+    <string name="hello_welcome_back">Hello Welcome back</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="log_in">Log in</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign Up</string>
+    <string name="username">Username</string>
+    <string name="create_account">Create account</string>
+    <string name="already_have_an_account_log_in">Already have an account? Log in</string>
+    <string name="make_your_mories">Make Your Mories</string>
+    <string name="record_recall_and_share_your_favorite_mymories_anytime">Record, recall and share your favorite mymories anytime.</string>
+    <string name="continue_with_google">Continue with Google</string>
+    <string name="continue_with_apple">Continue with Apple</string>
+    <string name="sign_up_with_email">Sign up with email</string>
+    <string name="your_profile">Your Profile</string>
+</resources>

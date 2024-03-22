@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+        <color name="colorPri">#2f2d2e</color>
+        <color name="colorPriDark">#2f2d2e</color>
+        <color name="colorAccent">#FDBE3B</color>
+        <color name="colorWhite">#636157</color>
+        <color name="text">#000000</color>
+        <color name="background_bottomsheet">#D7CCC8</color>
+        <color name="navigationBckgroundColor">#FDBE3B</color>
+        <color name="colorSearchIcon">#DBDBDB</color>
+        <color name="texthint">#7B7B7B</color>
+        <color name="quickActionbackground">#2f2d2e</color>
+        <color name="Icones">#FCFCFC</color>
+        <color name="textSubtitle">#cecece</color>
+        <color name="defaultNoteColor">#333333</color>
+        <color name="noteSubtitleText">#fafafa</color>
+        <color name="miscellaneousBackground">#1f1f1f</color>
+        <color name="noteColor1">#FAFAFA</color>
+        <color name="noteColor2">#faafa8</color>
+        <color name="noteColor3">#f39f76</color>
+        <color name="noteColor4">#fff8b8</color>
+        <color name="noteColor5">#e2f6d3</color>
+        <color name="noteColor6">#b4ddd3</color>
+        <color name="noteColor7">#d4e4ed</color>
+        <color name="noteColor8">#aeccdc</color>
+        <color name="noteColor9">#d3bfdb</color>
+        <color name="noteColor10">#f6e2dd</color>
+        <color name="noteColor11">#e9e3d4</color>
+        <color name="noteColor12">#efeff1</color>
+        <color name="noteColor13">#4C494A</color>
+        <color name="colorDelete">#ff4842</color>
+        <color name="quicActionBarBackground">#0E0E0E</color>
+        <color name="trans">#00FFFFff</color>
+        <color name="black">#FF000000</color>
+        <color name="white">#FFFFFFFF</color>
+        <color name="main_back">#6868AA</color>
+        <color name="button_apple">#95CFD6</color>
+        <color name="button_google">#FDE6CD</color>
+        <color name="login_back">#95CFD6</color>
+        <color name="searchBackground">#333333</color>
+
+
+    <style name="Base.Theme.OwnBook" parent="Theme.Material3.DynamicColors.Dark">
+<!--        <item name="android:windowLightNavigationBar">true</item>-->
+<!--        <item name="android:navigationBarColor">#EEEEEE</item>-->
+
+<!--            <item name="colorPrimary">@color/colorPri</item> &lt;!&ndash; Primary color &ndash;&gt;-->
+<!--            &lt;!&ndash;            <item name="colorPrimaryDark">@color/colorPrimaryDark</item> &lt;!&ndash; Primary dark color &ndash;&gt;&ndash;&gt;-->
+<!--            <item name="colorAccent">@color/colorPriDark</item> &lt;!&ndash; Accent color &ndash;&gt;-->
+<!--&lt;!&ndash;            <item name="colorBackground">@color/colorBackground</item> &lt;!&ndash; Background color &ndash;&gt;&ndash;&gt;-->
+<!--            &lt;!&ndash;            <item name="colorForeground">@color/colo</item> &lt;!&ndash; Foreground color &ndash;&gt;&ndash;&gt;-->
+<!--            &lt;!&ndash;            <item name="colorControlNormal">@color/colorControlNormal</item> &lt;!&ndash; Normal control color &ndash;&gt;&ndash;&gt;-->
+<!--            &lt;!&ndash;            <item name="colorControlActivated">@color/colorControlActivated</item> &lt;!&ndash; Activated control color &ndash;&gt;&ndash;&gt;-->
+<!--            &lt;!&ndash;            <item name="colorControlHighlight">@color/colorControlHighlight</item> &lt;!&ndash; Control highlight color &ndash;&gt;&ndash;&gt;-->
+<!--            &lt;!&ndash;            <item name="colorError">@color/colorError</item>&ndash;&gt;-->
+<!--            <item name="android:windowBackground">@color/colorPri</item>-->
+
+
+    </style>
+
+</resources>

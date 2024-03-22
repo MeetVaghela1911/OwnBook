@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerlayoutmain"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/coordinatorLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/coordinatorLayout2"/>
+
+
+        <LinearLayout
+            android:id="@+id/emptyNoteLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/coordinatorLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/coordinatorLayout2">
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:src="@drawable/icon_empty_note" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bold"
+                android:gravity="center"
+                android:text="@string/no_notes_available"
+                android:textSize="@dimen/_15sdp" />
+
+        </LinearLayout>
+
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/layoutquickActions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:layout_scrollFlags="scroll"
+                    app:toolbarId="@+id/toolbar">
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="?android:windowBackground"
+                        android:fitsSystemWindows="true">
+
+                        <LinearLayout
+                            android:id="@+id/layoutSearch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/_5sdp"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            android:layout_marginEnd="@dimen/_5sdp"
+                            android:background="@null"
+                            android:orientation="horizontal"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/serchLayoutMain"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/backgrond_search">
+
+                                <ImageView
+                                    android:id="@+id/drawerButton"
+                                    android:layout_width="33dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginStart="16dp"
+                                    android:contentDescription="@string/app_name"
+                                    android:src="@drawable/icon_menu"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.466"
+                                    app:tint="@color/colorSearchIcon" />
+
+                                <EditText
+                                    android:id="@+id/inputSearch"
+                                    android:layout_width="0dp"
+                                    android:layout_height="@dimen/_35sdp"
+                                    android:layout_gravity="fill"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:background="@null"
+                                    android:fontFamily="@font/regular"
+                                    android:hint="@string/search_notes"
+                                    android:inputType="text"
+                                    android:minWidth="@android:dimen/thumbnail_width"
+                                    android:textColor="@color/colorWhite"
+                                    android:textColorHint="@color/texthint"
+                                    android:textSize="@dimen/_13ssp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toStartOf="@+id/layoutChanger"
+                                    app:layout_constraintStart_toEndOf="@+id/drawerButton"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <ImageView
+                                    android:id="@+id/layoutChanger"
+                                    android:layout_width="@dimen/_20sdp"
+                                    android:layout_height="@dimen/_20ssp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginEnd="16dp"
+                                    android:contentDescription="@string/app_name"
+                                    android:foregroundGravity="right"
+                                    android:padding="@dimen/_3sdp"
+                                    android:src="@drawable/icon_grid"
+                                    app:layout_constraintBottom_toBottomOf="@+id/drawerButton"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/drawerButton"
+                                    app:tint="@color/colorSearchIcon" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                    </androidx.appcompat.widget.Toolbar>
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:contentScrim="?attr/colorPrimary"
+                    app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
+                    app:toolbarId="@+id/toolbar">
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar2"
+                        android:layout_width="match_parent"
+                        android:layout_height="64dp"
+                        android:background="?android:windowBackground"
+                        android:fitsSystemWindows="true">
+
+                        <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:scrollbars="none">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <com.google.android.material.chip.ChipGroup
+                                    android:id="@+id/chipGroup"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:singleLine="true">
+
+                                    <com.google.android.material.chip.Chip
+                                        android:id="@+id/chipAll"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="@dimen/_2sdp"
+                                        android:checkable="true"
+                                        android:checked="true"
+                                        android:text="All"
+                                        app:checkedIconEnabled="true"
+                                        app:checkedIconVisible="true"
+                                        app:chipCornerRadius="@dimen/_12sdp"
+                                        app:chipStrokeColor="@color/colorWhite"
+                                        app:chipStrokeWidth="1dp" />
+
+                                    <com.google.android.material.chip.Chip
+                                        android:id="@+id/chippin"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:checkable="true"
+                                        android:text="Pin"
+                                        app:checkedIconEnabled="true"
+                                        app:checkedIconVisible="true"
+                                        app:chipCornerRadius="@dimen/_12sdp"
+                                        app:chipStrokeColor="@color/colorWhite"
+                                        app:chipStrokeWidth="1dp" />
+
+                                    <com.google.android.material.chip.Chip
+                                        android:id="@+id/chipArchive"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:checkable="true"
+                                        android:text="Archive"
+                                        app:checkedIconEnabled="true"
+                                        app:checkedIconVisible="true"
+                                        app:chipCornerRadius="@dimen/_12sdp"
+                                        app:chipStrokeColor="@color/colorWhite"
+                                        app:chipStrokeWidth="1dp" />
+
+                                    <com.google.android.material.chip.Chip
+                                        android:id="@+id/chipFirebaseData"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:checkable="true"
+                                        android:text="Cloud Data"
+                                        app:checkedIconEnabled="true"
+                                        app:checkedIconVisible="true"
+                                        app:chipCornerRadius="@dimen/_12sdp"
+                                        app:chipStrokeColor="@color/colorWhite"
+                                        app:chipStrokeWidth="1dp" />
+
+
+                                    <com.google.android.material.chip.Chip
+                                        android:id="@+id/chipImg"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:checkable="true"
+                                        android:text="Image Note"
+                                        app:checkedIconEnabled="true"
+                                        app:checkedIconVisible="true"
+                                        app:chipCornerRadius="@dimen/_12sdp"
+                                        app:chipStrokeColor="@color/colorWhite"
+                                        app:chipStrokeWidth="1dp" />
+
+
+                                </com.google.android.material.chip.ChipGroup>
+
+                            </LinearLayout>
+
+                        </HorizontalScrollView>
+
+
+                    </androidx.appcompat.widget.Toolbar>
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollViewOfRoomdata"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/othernotesRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:paddingEnd="@dimen/_5sdp"
+                    android:visibility="visible" />
+
+            </androidx.core.widget.NestedScrollView>
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scrollViewOfFirebaseNote"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/firebaseNoteRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:paddingEnd="@dimen/_5sdp"/>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutquickActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_add_button"
+            android:backgroundTint="?attr/colorSurfaceContainerHigh"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/imageCheackBox"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_cheak_box"
+                app:tint="@color/Icones" />
+
+            <ImageView
+                android:id="@+id/imageImage"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_image"
+                app:tint="@color/Icones" />
+
+            <ImageView
+                android:id="@+id/imageMic"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_mic"
+                app:tint="@color/Icones" />
+
+            <ImageView
+                android:id="@+id/imageUrl"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/icon_url"
+                app:tint="@color/Icones" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageAddNoteMain"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginEnd="@dimen/_30sdp"
+            android:background="@drawable/background_add_button"
+            android:contentDescription="@string/app_name"
+            app:layout_constraintBottom_toTopOf="@id/layoutquickActions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/layoutquickActions"
+            app:srcCompat="@drawable/icon_add"
+            android:padding="@dimen/_5sdp"
+            app:tint="@color/colorPri" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationDrawer"
+        android:fitsSystemWindows="true"
+        android:paddingTop="@dimen/_25sdp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:foregroundGravity="center"
+        android:background="@drawable/background_navigation"
+        app:headerLayout="@layout/navigation_header"
+        android:layout_gravity="start" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

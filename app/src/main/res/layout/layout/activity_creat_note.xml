@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPri"
+    tools:context=".CreatNoteActivity">
+
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/_50sdp">
+
+            <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_6sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/arrow_back"
+                android:tint="@color/colorWhite" />
+
+
+            <ImageView
+                android:id="@+id/imageArchive"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:contentDescription="@string/app_name"
+                android:layout_marginEnd="@dimen/_15sdp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageSave"
+                app:layout_constraintEnd_toStartOf="@+id/imageSave"
+                app:layout_constraintTop_toTopOf="@+id/imageSave"
+                app:srcCompat="@drawable/icon_archive"
+                app:tint="@color/colorWhite" />
+
+            <ImageView
+                android:id="@+id/imagepin"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintBottom_toBottomOf="@+id/imageArchive"
+                app:layout_constraintEnd_toStartOf="@+id/imageArchive"
+                app:layout_constraintTop_toTopOf="@+id/imageArchive"
+                app:srcCompat="@drawable/icon_pin_not_filled"
+                app:tint="@color/colorWhite" />
+
+            <ImageView
+                android:id="@+id/imageSave"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:background="@drawable/background_done_button"
+                android:padding="@dimen/_4sdp"
+                android:src="@drawable/icon_done"
+                app:layout_constraintBottom_toBottomOf="@id/imageBack"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/imageBack"
+                app:tint="@color/colorWhite" />
+
+            <LinearLayout
+                android:id="@+id/layoutOfImageNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageBack">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/imagNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    app:riv_corner_radius="@dimen/_5sdp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/deleteImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:background="@drawable/background_delete_button"
+                    android:fontFamily="@font/regular"
+                    android:text="@string/delet"
+                    android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/inputnotetitle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_10sdp"
+                android:background="@null"
+                android:fontFamily="@font/bold"
+                android:hint="@string/note_title"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:textColorHint="@color/texthint"
+                android:textSize="@dimen/_20sdp"
+                app:layout_constraintTop_toBottomOf="@id/layoutOfImageNote" />
+
+
+            <EditText
+                android:id="@+id/inputnotesubtitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:background="@null"
+                android:fontFamily="@font/regular"
+                android:hint="@string/note_subtitle"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:includeFontPadding="false"
+                android:inputType="textMultiLine"
+                android:paddingTop="@dimen/_8sdp"
+                android:paddingBottom="@dimen/_8sdp"
+
+                android:textColorHint="@color/texthint"
+                android:textSize="@dimen/_15ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/viewSubtitleIndicator"
+                app:layout_constraintTop_toBottomOf="@id/inputnotetitle" />
+
+            <View
+                android:id="@+id/viewSubtitleIndicator"
+                android:layout_width="@dimen/_5sdp"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:background="@drawable/background_subtitle_indicator"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/inputnotesubtitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/inputnotesubtitle" />
+
+            <!--            <LinearLayout-->
+            <!--                android:id="@+id/layoutOfCheckbox"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:orientation="vertical"-->
+            <!--                android:layout_marginStart="@dimen/_12sdp"-->
+            <!--                android:layout_marginEnd="@dimen/_12sdp"-->
+            <!--                android:layout_marginTop="@dimen/_15sdp"-->
+            <!--                android:layout_marginBottom="@dimen/_3sdp"-->
+            <!--                app:layout_constraintBottom_toTopOf="@id/layoutOfWebUrl"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/viewSubtitleIndicator"/>-->
+
+            <LinearLayout
+                android:id="@+id/checkboxList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:orientation="vertical"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_10sdp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/layoutOfWebUrl"
+                app:layout_constraintTop_toBottomOf="@+id/inputnotesubtitle">
+
+                <LinearLayout
+                    android:id="@+id/addCheckBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/_12ssp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:src="@drawable/icon_add" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/medium"
+                        android:text="List Item"
+                        android:textSize="@dimen/_13ssp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/layoutOfWebUrl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_3sdp"
+                android:orientation="vertical"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/inputNotes"
+                app:layout_constraintTop_toBottomOf="@id/checkboxList">
+
+                <TextView
+                    android:id="@+id/textWebUrl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:fontFamily="@font/regular"
+                    android:textSize="@dimen/_13ssp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/deleteWebUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:background="@drawable/background_delete_button"
+                    android:fontFamily="@font/regular"
+                    android:text="@string/delet"
+                    android:textColor="@color/colorWhite" />
+
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/inputNotes"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:autoLink="all"
+                android:background="@null"
+                android:clickable="true"
+                android:fontFamily="@font/regular"
+                android:gravity="top"
+                android:hint="@string/type_note_here"
+                android:inputType="textMultiLine"
+                android:minHeight="@dimen/_250sdp"
+                android:paddingBottom="@dimen/_200sdp"
+                android:textColorHint="@color/texthint"
+                android:textIsSelectable="true"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/layoutOfWebUrl" />
+
+
+            <!--    <include layout="@layout/layout_mis"-->
+            <!--        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"/>-->
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginStart="@dimen/_4sdp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/background_add_button"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="@dimen/_6sdp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textDataTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/regular"
+            android:includeFontPadding="false"
+            android:textColor="@color/Icones"
+            app:layout_constraintEnd_toEndOf="@id/inputnotetitle"
+            app:layout_constraintStart_toStartOf="@id/inputnotetitle"
+            app:layout_constraintTop_toBottomOf="@id/inputnotetitle" />
+
+        <ImageView
+            android:id="@+id/addItmes"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:src="@android:drawable/ic_input_add"
+            app:tint="@color/Icones" />
+
+        <ImageView
+            android:id="@+id/colorItmes"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/icon_color"
+            app:tint="@color/Icones" />
+
+        <ImageView
+            android:id="@+id/otherItems"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_gravity="right"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:foregroundGravity="right"
+            android:padding="@dimen/_4sdp"
+            android:src="@drawable/icon_other"
+            app:tint="@color/Icones" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
