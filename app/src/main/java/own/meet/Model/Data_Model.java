@@ -18,7 +18,7 @@ public class Data_Model implements Parcelable {
         this.noteText = noteText;
     }
 
-    public Data_Model(int id, boolean archive, String title, String dateTime, String subtitle, String noteText, String imagePath, String color, String webLink, boolean pin, String checkBoxListStr, String firebaseID) {
+    public Data_Model(int id, boolean archive, String title, String dateTime, String subtitle, String noteText, String imagePath, String color, String webLink, boolean pin, String checkBoxListStr, String firebaseID, boolean collabrative , String otherUserList) {
 
         this.id = id;
         this.archive = archive;
@@ -32,6 +32,8 @@ public class Data_Model implements Parcelable {
         this.pin = pin;
         this.checkBoxListStr = checkBoxListStr;
         this.firebaseID = firebaseID;
+        this.collabrative = collabrative;
+        this.otherUserList = otherUserList;
     }
 
     private int id;
@@ -42,10 +44,15 @@ public class Data_Model implements Parcelable {
     private String noteText;
     private String imagePath;
     private String color;
+
+
+
     private String webLink;
     private boolean pin;
     private String checkBoxListStr;
     private String firebaseID;
+    private boolean collabrative;
+    private String otherUserList;
 
 
     protected Data_Model(Parcel in) {
@@ -61,6 +68,8 @@ public class Data_Model implements Parcelable {
         pin = in.readByte() != 0;
         checkBoxListStr = in.readString();
         firebaseID = in.readString();
+        collabrative = in.readByte() != 0;
+        otherUserList = in.readString();
     }
 
     public static final Creator<Data_Model> CREATOR = new Creator<Data_Model>() {
@@ -171,6 +180,22 @@ public class Data_Model implements Parcelable {
         this.checkBoxListStr = checkBoxListStr;
     }
 
+    public boolean getCollabrative() {
+        return collabrative;
+    }
+
+    public void setCollabrative(boolean collabrative) {
+        this.collabrative = collabrative;
+    }
+
+    public String getOtherUserList() {
+        return otherUserList;
+    }
+
+    public void setOtherUserList(String otherUserList) {
+        this.otherUserList = otherUserList;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -190,5 +215,7 @@ public class Data_Model implements Parcelable {
         dest.writeByte((byte) (pin ? 1 : 0));
         dest.writeString(checkBoxListStr);
         dest.writeString(firebaseID);
+        dest.writeByte((byte) (collabrative ? 1 : 0));
+        dest.writeString(otherUserList);
     }
 }

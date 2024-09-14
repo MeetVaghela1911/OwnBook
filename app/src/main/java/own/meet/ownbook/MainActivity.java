@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity implements NotesListner , Fi
 
     private DrawerLayout drawerLayoutmain;
     private ImageView drawerButton;
-    private ImageView imageNote, imageArchive, imageSetting, imageLogout,imageAddnote , imageProfile;
+    private ImageView imageNote, imageArchive, imageSetting, imageLogout, imageAddnote , imageProfile;
     private EditText searchtext;
     private NoteAdapter noteAdapter ;
     private  Boolean checklayoutOrieantation ;
@@ -248,6 +249,13 @@ public class MainActivity extends AppCompatActivity implements NotesListner , Fi
 //      on quick actions
         onQuickActionClick();
 
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                findViewById(R.id.chipAll).performClick();
+            }
+        },1000);
     }
 
 
@@ -284,11 +292,11 @@ public class MainActivity extends AppCompatActivity implements NotesListner , Fi
                         recyclerView.setAdapter(noteAdapter);
                         recyclerView.setVisibility(View.VISIBLE);
 
-                        if(noteList.isEmpty()){
-                            emptyNoteLayout.setVisibility(View.VISIBLE);
+                        if(!noteList.isEmpty()){
+                            emptyNoteLayout.setVisibility(View.GONE);
                         }
                         else {
-                            emptyNoteLayout.setVisibility(View.GONE);
+                            emptyNoteLayout.setVisibility(View.VISIBLE);
                         }
                     }
                     else if ( chip == headerChipGroup.findViewById(R.id.chippin))
@@ -501,6 +509,7 @@ public class MainActivity extends AppCompatActivity implements NotesListner , Fi
         });
 
     }
+
     private void handleImageNoteResponse(int reqestcode , boolean isNoteDelete , List<Note> notes)
     {
         if (reqestcode == REQUEST_CODE_SHOW_NOTE)
@@ -568,12 +577,72 @@ public class MainActivity extends AppCompatActivity implements NotesListner , Fi
                         boolean  pin = (Boolean) dataMap.get("pin");
                         String  checkBoxListStr = (String) dataMap.get("checkBoxListStr");
                         String firebaseID = (String) dataMap.get("firebaseID");
+                        Boolean collabrative = (Boolean) dataMap.get("collabrative");
+                        String otherUserList = (String) dataMap.get("otherUserList");
 
                         // Create an instance of Data_Model using the extracted data
-                        Data_Model model = new Data_Model(0,archive,title,dateTime,subtitle,noteText, imagePath,color,webLink,pin,checkBoxListStr,firebaseID);
+                        Data_Model model = new Data_Model(0,archive,title,dateTime,subtitle,noteText, imagePath,color,webLink,pin,checkBoxListStr,firebaseID,collabrative,otherUserList);
 
                         // Add the model to your arrayList
                             arrayList.add(model);
+                    }
+
+                    // Update UI with the fetched data
+//                    if(arrayList.isEmpty()){
+//                        emptyNoteLayout.setVisibility(View.VISIBLE);
+//                    }
+//                    else {
+//                        emptyNoteLayout.setVisibility(View.GONE);
+//                    }
+
+//                    adapter = new FirewallAdapter(arrayList, MainActivity.this,MainActivity.this);
+//                    recyclerView.setAdapter(adapter);
+//                    progressBar.setVisibility(View.GONE);
+//                    recyclerView.setVisibility(View.VISIBLE);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    //
+                }
+            });
+
+            dr = FirebaseDatabase.getInstance().getReference()
+                    .child("users")
+                    .child(userId)
+                    .child("Collabrative Note");
+
+            dr.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    Log.d("child", String.valueOf(snapshot.getChildrenCount()));
+
+                    for (DataSnapshot datasnap : snapshot.getChildren()) {
+
+                        // Get the data as a HashMap
+                        HashMap<String, Object> dataMap = (HashMap<String, Object>) datasnap.getValue();
+
+                        // Extract relevant fields from the HashMap
+                        boolean archive = (Boolean) dataMap.get("archive");
+                        String title = (String) dataMap.get("title");
+                        String dateTime = (String) dataMap.get("dateTime");
+                        String  subtitle = (String) dataMap.get("subtitle");
+                        String  noteText = (String) dataMap.get("noteText");
+                        String imagePath = (String) dataMap.get("imagePath");
+                        String  color = (String) dataMap.get("color");
+                        String  webLink = (String) dataMap.get("webLink");
+                        boolean  pin = (Boolean) dataMap.get("pin");
+                        String  checkBoxListStr = (String) dataMap.get("checkBoxListStr");
+                        String firebaseID = (String) dataMap.get("firebaseID");
+                        Boolean collabrative = (Boolean) dataMap.get("collabrative");
+                        String otherUserList = (String) dataMap.get("otherUserList");
+
+                        // Create an instance of Data_Model using the extracted data
+                        Data_Model model = new Data_Model(0,archive,title,dateTime,subtitle,noteText, imagePath,color,webLink,pin,checkBoxListStr,firebaseID,collabrative,otherUserList);
+
+                        // Add the model to your arrayList
+                        arrayList.add(model);
                     }
 
                     // Update UI with the fetched data
@@ -607,8 +676,6 @@ public class MainActivity extends AppCompatActivity implements NotesListner , Fi
         startActivityForResult(intent,REQUEST_CODE_UPDATE_NOTE);
         finish();
     }
-
-
 
 
     private boolean getchecklayout(){
@@ -784,6 +851,16 @@ public class MainActivity extends AppCompatActivity implements NotesListner , Fi
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(),CreatNoteActivity.class);
                 intent.putExtra("forAudio", 6);
+                startActivityForResult(intent,REQUEST_CODE_ADD_NOTE);
+                finish();
+            }
+        });
+
+        findViewById(R.id.imgCollabrative).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, CreatNoteActivity.class);
+                intent.putExtra("forCollabrativeNote",8);
                 startActivityForResult(intent,REQUEST_CODE_ADD_NOTE);
                 finish();
             }

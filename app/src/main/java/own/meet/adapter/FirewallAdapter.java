@@ -84,7 +84,7 @@ public class FirewallAdapter extends RecyclerView.Adapter<FirewallAdapter.NoteVi
     public static class NoteViewHolder2 extends RecyclerView.ViewHolder{
 
         TextView title , subTitle , dateTime;
-        LinearLayout layout;
+        LinearLayout layout, collabrativeNotelayout;
         RoundedImageView imageNote;
         public NoteViewHolder2(@NonNull View itemView) {
             super(itemView);
@@ -94,6 +94,7 @@ public class FirewallAdapter extends RecyclerView.Adapter<FirewallAdapter.NoteVi
             dateTime = itemView.findViewById(R.id.textDataTime);
             layout = itemView.findViewById(R.id.layoutNote);
             imageNote = itemView.findViewById(R.id.imageNote);
+            collabrativeNotelayout = itemView.findViewById(R.id.collabrative_note_layout);
         }
 
         void setNote(Data_Model note)
@@ -121,6 +122,10 @@ public class FirewallAdapter extends RecyclerView.Adapter<FirewallAdapter.NoteVi
             }
             else {
                 imageNote.setVisibility(View.GONE);
+            }
+            if(note.getCollabrative())
+            {
+                collabrativeNotelayout.setVisibility(View.VISIBLE);
             }
         }
     }

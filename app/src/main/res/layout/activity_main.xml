@@ -351,6 +351,15 @@
                 android:src="@drawable/icon_url"
                 app:tint="@color/Icones" />
 
+            <ImageView
+                android:id="@+id/imgCollabrative"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/collabrative"
+                app:tint="@color/Icones" />
+
         </LinearLayout>
 
         <ImageView

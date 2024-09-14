@@ -1,34 +1,42 @@
 {
   "project_info": {
-    "project_number": "676275198136",
-    "firebase_url": "https://mya-22eb8-default-rtdb.firebaseio.com",
-    "project_id": "mya-22eb8",
-    "storage_bucket": "mya-22eb8.appspot.com"
+    "project_number": "120643009000",
+    "firebase_url": "https://ownbook-50556-default-rtdb.firebaseio.com",
+    "project_id": "ownbook-50556",
+    "storage_bucket": "ownbook-50556.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:676275198136:android:14f79adc781d00403f7c4d",
+        "mobilesdk_app_id": "1:120643009000:android:d4e270d7ac55af9525cc5d",
         "android_client_info": {
           "package_name": "own.meet.ownbook"
         }
       },
       "oauth_client": [
         {
-          "client_id": "676275198136-rm838vku5evkqmomrt2sliu0j33acflh.apps.googleusercontent.com",
+          "client_id": "120643009000-te8itv7uchvsn4bab1jrq7qn81s3schb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "own.meet.ownbook",
+            "certificate_hash": "0455d166044b1c387109939332f2fa803ef656b2"
+          }
+        },
+        {
+          "client_id": "120643009000-61buoug4tolh439cdice85otnkn9u840.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAUYpf7DdQ0KDPdrIxMGHq87ALaGDiu5Nw"
+          "current_key": "AIzaSyCR9inu0h-C1PlOi2Or8h6uLlnhFLHLtWQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "676275198136-rm838vku5evkqmomrt2sliu0j33acflh.apps.googleusercontent.com",
+              "client_id": "120643009000-61buoug4tolh439cdice85otnkn9u840.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
